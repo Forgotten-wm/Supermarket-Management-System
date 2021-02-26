@@ -1,0 +1,22 @@
+.col-md-2{
+    text-align: center;
+}
+
+.col-md-2 a:hover{
+    text-decoration: none;
+    letter-spacing: 3px;
+}
+
+.col-md-2 a:focus{
+    text-decoration: none;
+    color: blue;
+}
+
+#screen-sec{
+    margin: 0 auto;
+}
+
+#screen{
+    width: 100%;
+}
+

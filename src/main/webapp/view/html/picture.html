@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>超市货品管理系统|图片管理</title>
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/picture.css">
+    <script src="../script/picture.js"></script>
+</head>
+<body>
+
+<section class="panel">
+
+    <article class="panel-heading panel-info">
+        <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span>HOME</span>
+        </a>
+        <span>|图片管理</span>
+    </article>
+
+    <article class="panel-body">
+
+        <section id="picture-sec"></section>
+
+        <section class="col-xs-3 col-md-3 col-lg-2">
+            <img id="add-img" data-target="#upload-sec" data-toggle="modal" src="/picture/add.jpg">
+        </section>
+
+    </article>
+
+    <article class="panel-footer panel-info">
+        <span>Tips:您可以在本页面对全部商品图片进行操作</span>
+    </article>
+</section>
+
+
+<article id="upload-sec" class="modal fade" tabindex="-1" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="upload-picture-form" enctype="multipart/form-data">
+                <article class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">上传图片</h3>
+                </article>
+                <article id="modal-body" class="modal-body row">
+
+                    <div class="col-xs-7">
+
+                        <label hidden="hidden">
+                            <input id="hidden-goods-id-ipt"  name="goods.id">
+                        </label>
+                        <label hidden="hidden">
+                            <input id="hidden-upload-ipt" type="file" name="pictureFile">
+                        </label>
+                        <label class="input-group">
+                            <input id="upload-ipt" type="text" class="form-control" readonly="readonly"
+                                   disabled="disabled" placeholder="请选择图片..." required="required">
+                            <span class="input-group-btn">
+                                <button id="upload-ipt-btn" type="button" class="btn btn-primary">
+                                    文件浏览
+                                </button>
+                            </span>
+                        </label>
+
+                        <label>
+                            <input id="picture-title-ipt" name="picture.title" type="text" class="form-control"
+                                   placeholder="请填写文件标题..." required="required">
+                        </label>
+
+                        <label>
+                            <textarea id="picture-information-ipt" name="picture.information" rows="5"
+                                      class="form-control" placeholder="请填写文件信息..."></textarea>
+                        </label>
+
+
+                    </div>
+
+                    <div class="col-xs-5">
+                        <img id="preview-img" src="/picture/default.jpg">
+                    </div>
+
+                </article>
+
+                <article class="modal-foot text-center">
+                    <button id="upload-picture-btn" type="button" class="btn btn-success">确认上传</button>
+                </article>
+            </form>
+        </div>
+    </div>
+</article>
+</body>
+</html>

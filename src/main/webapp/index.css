@@ -1,0 +1,16 @@
+section{
+    width: 500px;
+    margin: 100px auto;
+}
+
+.panel-header{
+text-align: center;
+}
+
+.panel-footer{
+    text-align: right;
+}
+
+.alert{
+    display: none;
+}

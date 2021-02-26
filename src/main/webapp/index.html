@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>超市货品管理系统</title>
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<form id="login-form" action="JavaScript:">
+<section class="panel">
+
+        <article class="panel-heading panel-info">
+            <div class="panel-title"><h3>超市货品管理系统</h3></div>
+        </article>
+
+        <article class="panel-body">
+            <label class="input-group">
+                <span class="input-group-addon">账号</span>
+                <input id="username-ipt" name="username" type="text" autofocus="autofocus" required="required"
+                       class="form-control" placeholder="请输入你的账号" value="admin">
+            </label>
+
+            <label class="input-group">
+                <span class="input-group-addon">账号</span>
+                <input id="password-ipt" name="password" type="password" required="required" class="form-control"
+                       placeholder="请输入你的密码" value="123">
+            </label>
+
+            <div id="error-msg" class="alert alert-danger"></div>
+        </article>
+
+        <article class="panel-footer">
+            <button id="rest-btn" type="button" class="btn btn-danger">重置</button>
+            <button id="submit-btn" type="submit" class="btn btn-info">登录</button>
+        </article>
+</section>
+</form>
+
+
+</body>
+</html>

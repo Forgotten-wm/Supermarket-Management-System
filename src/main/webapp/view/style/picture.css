@@ -1,0 +1,14 @@
+img{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+#upload-picture-form label{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+textarea{
+    resize: none;
+}

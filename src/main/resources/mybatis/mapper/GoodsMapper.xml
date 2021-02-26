@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wm.mapper.GoodsMapper">
+
+    <sql id="*">
+        id,name,type,price,unit,production_date productionDate,expiry_date expiryDate,supplier_id,information
+    </sql>
+
+    <resultMap id="goods-supplier" type="Goods">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="price" property="price"/>
+        <result column="unit" property="unit"/>
+        <result column="production_date" property="productionDate"/>
+        <result column="expiry_date" property="expiryDate"/>
+        <result column="information" property="information"/>
+        <association javaType="Supplier" property="supplierId" column="supplier_id" jdbcType="INTEGER"
+                     select="com.wm.mapper.SupplierMapper.selectById">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="loc" property="loc"/>
+        </association>
+    </resultMap>
+
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into goods (`name`, `type`, `price`, `unit`, `production_date`, `expiry_date`, `supplier_id`,
+                           `information`)
+        values (#{name}, #{type}, #{price}, #{unit}, #{productionDate}, #{expiryDate}, #{supplierId.id}, #{information})
+    </insert>
+
+
+    <select id="selectAll" resultMap="goods-supplier">
+        select *
+        from `goods`
+    </select>
+
+
+    <select id="count" resultType="_int">
+        SELECT count(*)
+        FROM `goods`
+    </select>
+
+
+    <select id="selectById" resultMap="goods-supplier">
+        select *
+        from `goods`
+        where id = #{id}
+    </select>
+
+
+    <update id="updateById">
+        UPDATE `goods`
+        <set>
+            <if test='name != null'>
+                `name` = #{name},
+            </if>
+            <if test='type != null'>
+                `type` = #{type},
+            </if>
+            <if test='price != null'>
+                `price` = #{price},
+            </if>
+            <if test='unit != null'>
+                `unit` = #{unit},
+            </if>
+            <if test='productionDate != null'>
+                `production_date` = #{productionDate},
+            </if>
+            <if test='expiryDate != null'>
+                `expiry_date` = #{expiryDate},
+            </if>
+            <if test='supplierId != null'>
+                `supplier_id` = #{supplierId.id},
+            </if>
+            <if test='expiryDate != null'>
+                `information` = #{information},
+            </if>
+
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <delete id="deleteByIds">
+        DELETE
+        FROM `goods` WHERE
+        <foreach collection="array" item="e" open=" id in (" separator="," close=")">
+            ${e}
+        </foreach>
+    </delete>
+
+
+</mapper>

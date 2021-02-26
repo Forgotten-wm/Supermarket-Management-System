@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>超市货品管理系统|商品修改</title>
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/goods-update.css">
+    <script src="../script/goods-update.js"></script>
+    <script src="../script/date-format.js"></script>
+</head>
+<body>
+
+<section class="panel">
+
+    <article class="panel-heading panel-info">
+        <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span>HOME</span>
+        </a>
+        <span>|商品修改</span>
+    </article>
+    <form id="goods-update-form">
+        <article class="panel-body">
+            <div class="col-xs-7">
+                <h4>基本信息</h4>
+                <hr/>
+                <label hidden="hidden">
+                    <span>商品id</span>
+                    <input name="id" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">商品名称</span>
+                    <input name="name" class="form-control" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">商品类型</span>
+                    <input name="type" class="form-control" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">商品单价</span>
+                    <input name="price" class="form-control" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">商品单位</span>
+                    <input name="unit" class="form-control" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">生产日期</span>
+                    <input name="productionDate" type="date" class="form-control" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">过期日期</span>
+                    <input name="expiryDate" type="date" class="form-control" required="required">
+                </label>
+                <label class="input-group">
+                    <span class="input-group-addon">供货商家</span>
+                    <select id="supplier-sel" name="supplierId.id" class="form-control" required="required">
+                    </select>
+                </label>
+
+            </div>
+
+            <div class="col-xs-5">
+                <h4>详细信息</h4>
+                <hr/>
+                <label class="input-group">
+                    <textarea name="information" rows="13" required="required"></textarea>
+                </label>
+            </div>
+
+
+        </article>
+
+        <article class="panel-footer panel-info">
+            <button id="goods-update-reset-btn" type="button" class="btn btn-danger">重置</button>
+            <button id="goods-update-submit-btn" type="button" class="btn btn-info">提交</button>
+        </article>
+    </form>
+</section>
+
+</body>
+</html>

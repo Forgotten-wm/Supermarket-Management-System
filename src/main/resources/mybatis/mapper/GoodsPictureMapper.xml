@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wm.mapper.GoodsPictureMapper">
+
+    <sql id="*">
+        id,goods_id goodsId,picture_id,pictureId
+    </sql>
+
+    <resultMap id="goods-picture" type="GoodsPicture">
+        <id column="id" property="id"/>
+        <association javaType="Goods" property="goodsId" column="goods_id" jdbcType="INTEGER"
+                     select="com.wm.mapper.GoodsMapper.selectById">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="type" property="type"/>
+            <result column="price" property="price"/>
+            <result column="unit" property="unit"/>
+            <result column="production_date" property="productionDate"/>
+            <result column="expiry_date" property="expiryDate"/>
+            <result column="supplier_id" property="supplierId"/>
+            <result column="information" property="information"/>
+
+        </association>
+        <association javaType="Picture" property="pictureId" column="picture_id" jdbcType="INTEGER"
+                     select="com.wm.mapper.PictureMapper.selectById">
+            <id column="id" property="id"/>
+            <result column="src" property="src"/>
+            <result column="title" property="title"/>
+            <result column="information" property="information"/>
+        </association>
+    </resultMap>
+
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into goods_picture (`goods_id`, `picture_id`)
+        values (#{goodsId.id}, #{pictureId.id})
+    </insert>
+
+
+    <select id="selectAll" resultMap="goods-picture">
+        select *
+        from `goods_picture`
+    </select>
+
+
+    <select id="count" resultType="_int">
+        SELECT count(*)
+        FROM `goods_picture`
+    </select>
+
+
+    <select id="selectById" resultMap="goods-picture">
+        select *
+        from `goods_picture`
+        where id = #{id}
+    </select>
+
+    <select id="selectByGoodsId" resultMap="goods-picture">
+        select *
+        from `goods_picture`
+        where goods_id = #{goodsId}
+    </select>
+    <select id="selectByGoodsIds"  resultMap="goods-picture">
+        select *
+        from `goods_picture`
+        <where>
+        <foreach collection="array" item="e" open="goods_id in (" separator="," close=")">
+            ${e}
+        </foreach>
+        </where>
+    </select>
+
+
+    <update id="updateById">
+        UPDATE `goods_picture`
+        <set>
+            <if test='goodsId != null'>
+                `goods_id` = #{goodsId.id},
+            </if>
+            <if test='pictureId != null'>
+                `picture_id` = #{pictureId.id},
+            </if>
+
+
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <delete id="deleteByIds">
+        DELETE
+        FROM `goods_picture` WHERE
+        <foreach collection="array" item="e" open=" id in (" separator="," close=")">
+            ${e}
+        </foreach>
+    </delete>
+
+    <delete id="deleteByGoodsIds">
+        DELETE
+        FROM `goods_picture` WHERE
+        <foreach collection="array" item="e" open=" goods_id in (" separator="," close=")">
+            ${e}
+        </foreach>
+    </delete>
+    <delete id="deleteByPictureIds">
+        DELETE
+        FROM `goods_picture` WHERE
+        <foreach collection="array" item="e" open=" picture_id in (" separator="," close=")">
+            ${e}
+        </foreach>
+    </delete>
+
+
+</mapper>

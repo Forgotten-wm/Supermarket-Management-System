@@ -1,0 +1,22 @@
+
+textarea{
+    resize: none;
+    width: 200%;
+}
+
+#goods-picture button{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+}
+input[name="picture.title"] {
+    width: 225% !important;
+}
+textarea[name="picture.information"] {
+    width: 238% !important;
+}

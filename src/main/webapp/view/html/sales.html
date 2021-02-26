@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>超市货品管理系统|销售管理</title>
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <script src="../script/sales.js"></script>
+    <script src="../script/date-format.js"></script>
+</head>
+<body>
+
+<article class="panel-heading panel-info">
+    <a href="home.html">
+        <span class="glyphicon glyphicon-home"></span>
+        <span>HOME</span>
+    </a>
+    <span>|销售管理</span>
+</article>
+<form id="goods-sale-form" >
+    <article class="panel-body">
+        <div class="col-xs-12">
+            <h4>基本信息</h4>
+            <hr/>
+            <div id="goods-sale" >
+
+            </div>
+
+        </div>
+        <div class="col-xs-12">
+            <hr/>
+            <h4>总价</h4>
+            <hr/>
+            <div class="col-xs-3">
+                <label class="input-group ">
+                    <span class="input-group-addon">商品总价</span>
+                    <input id="total" class="form-control" placeholder="" value="0">
+                    <span class="input-group-addon">元</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <hr/>
+            <button id="goods-add-btn" data-target="#sale-art" data-toggle="modal" type="button"
+                    class="btn btn-primary">添加商品
+            </button>
+
+            <button id="goods-sale-delete-btn" type="button" class="btn btn-danger">删除商品</button>
+        </div>
+
+    </article>
+
+    <article class="panel-footer panel-info">
+        <button id="goods-sale-reset-btn" type="button" class="btn btn-primary">重置</button>
+        <button id="goods-sale-submit-btn" type="button" class="btn btn-info">提交</button>
+    </article>
+</form>
+</section>
+
+
+<article id="sale-art" class="modal fade" tabindex="-1" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="upload-picture-form" enctype="multipart/form-data">
+                <article class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">选择商品</h3>
+                </article>
+                <article id="modal-body" class="modal-body row">
+                    <div class="col-xs-12">
+                        <label class="input-group">
+                            <span class="input-group-addon">选择商品</span>
+                            <select id="goods-name-sel" class="form-control">
+
+                            </select>
+                            <span class="input-group-btn">
+                                <button id="goods-name-btn" type="button" class="btn btn-primary" >确定</button>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div id="goods-info-div" class="col-xs-12">
+
+
+                    </div>
+                </article>
+
+                <article class="modal-foot text-center">
+                    <button id="sale-add-btn" type="button" class="btn btn-success">确认添加</button>
+                </article>
+            </form>
+        </div>
+    </div>
+</article>
+
+</body>
+</html>

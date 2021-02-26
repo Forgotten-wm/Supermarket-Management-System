@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>超市货品管理系统|商品管理</title>
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/goods.css">
+    <script src="../script/goods.js"></script>
+    <script src="../script/date-format.js"></script>
+</head>
+<body>
+
+<section class="panel">
+
+    <article class="panel-heading panel-info">
+        <a href="home.html">
+            <span class="glyphicon glyphicon-home"></span>
+            <span>HOME</span>
+        </a>
+        <span>|商品管理</span>
+    </article>
+
+    <article class="panel-body">
+        <section class="operation-sec">
+            <article class="col-md-9 col-sm-9">
+                <button id="insert-btn" class="btn btn-info" type="button">添加</button>
+                <button id="delete-btn" class="btn btn-danger" type="button">批量删除</button>
+            </article>
+            <article class="col-md-3 col-sm-3">
+                <label class="">
+                    <select id="paging-size-sel" class="form-control">
+                        <option value="1">1条数据&nbsp;/&nbsp;页</option>
+                        <option value="5">5条数据&nbsp;/&nbsp;页</option>
+                        <option value="10">10条数据&nbsp;/&nbsp;页</option>
+                    </select>
+                </label>
+            </article>
+        </section>
+
+        <section id="goods-list-sec">
+            <form id="delete-form">
+                <table id="goods-list-tab" class="table table-condensed table-striped table-hover">
+                    <thead id="goods-list-thead"></thead>
+                    <tbody id="goods-list-tbody"></tbody>
+                </table>
+            </form>
+        </section>
+
+        <section class="paging-sec">
+            <ol id="paging-numbers-ol" class="pagination"></ol>
+        </section>
+
+
+    </article>
+
+    <article class="panel-footer panel-info">
+        <span>Tips:您可以在本页对所有商品进行操作</span>
+    </article>
+</section>
+
+
+<article id="information-sec" class="modal fade" tabindex="-1" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <article class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">详细信息</h3>
+            </article>
+            <article id="modal-body" class="modal-body">
+
+            </article>
+        </div>
+    </div>
+</article>
+
+</body>
+</html>

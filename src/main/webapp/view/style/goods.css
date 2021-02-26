@@ -1,0 +1,17 @@
+#user-list-sec {
+    margin: 10px;
+}
+
+.operation-sec {
+    margin: 10px;
+}
+
+.paging-sec {
+    text-align: center;
+}
+
+
+#goods-list-tbody a{
+    text-align: center;
+    margin: 0 2px;
+}

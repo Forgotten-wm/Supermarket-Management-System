@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wm.mapper.SupplierMapper">
+    <sql id="*">id,name,loc </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into supplier (name, loc)
+        values (#{name}, #{loc})
+    </insert>
+
+    <select id="selectAll" resultType="Supplier">
+        select *
+        from supplier
+    </select>
+
+    <select id="count" resultType="_int">
+        SELECT count(*)
+        FROM `supplier`
+    </select>
+
+    <select id="selectById" resultType="Supplier">
+        select *
+        from supplier
+        where id = #{id}
+    </select>
+
+    <update id="updateById">
+        UPDATE `supplier`
+        <set>
+            <if test='name != null'>
+                `name` = #{name},
+            </if>
+            <if test='loc != null'>
+                `loc` = #{loc},
+            </if>
+
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <delete id="deleteByIds">
+        DELETE
+        FROM `supplier` WHERE
+        <foreach collection="array" item="e" open=" id in (" separator="," close=")">
+            ${e}
+        </foreach>
+    </delete>
+
+
+</mapper>
